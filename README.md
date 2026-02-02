@@ -104,13 +104,13 @@ curl -X POST https://your-app.up.railway.app/setup/api/signal/verify \
 ```bash
 docker build -t openclaw-railway-template .
 
-docker run --rm -p 8080:8080 \
-  -e PORT=8080 \
+docker run --rm -p 7070:7070 \
+  -e PORT=7070 \
   -e SETUP_PASSWORD=test \
   -e OPENCLAW_STATE_DIR=/data/.openclaw \
   -e OPENCLAW_WORKSPACE_DIR=/data/workspace \
   -v $(pwd)/.tmpdata:/data \
   openclaw-railway-template
 
-# open http://localhost:8080/setup (password: test)
+# open http://localhost:7070/setup (password: test)
 ```

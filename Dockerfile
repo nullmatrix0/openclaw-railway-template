@@ -102,9 +102,9 @@ RUN printf '%s\n' '#!/usr/bin/env bash' 'exec node /openclaw/dist/entry.js "$@"'
 
 COPY src ./src
 
-ENV PORT=8080
+ENV PORT=7070
 ENV SIGNAL_DATA_DIR=/data/signal
-EXPOSE 8080
+EXPOSE 7070
 
 # Note: Railway volumes are configured via dashboard, not Dockerfile
 # Mount a volume at /data in Railway dashboard for persistent Signal data

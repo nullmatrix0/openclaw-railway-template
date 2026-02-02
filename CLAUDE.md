@@ -36,8 +36,8 @@ npm run smoke
 docker build -t openclaw-railway-template .
 
 # Run locally with volume
-docker run --rm -p 8080:8080 \
-  -e PORT=8080 \
+docker run --rm -p 7070:7070 \
+  -e PORT=7070 \
   -e SETUP_PASSWORD=test \
   -e OPENCLAW_STATE_DIR=/data/.openclaw \
   -e OPENCLAW_WORKSPACE_DIR=/data/workspace \
@@ -45,7 +45,7 @@ docker run --rm -p 8080:8080 \
   openclaw-railway-template
 
 # Access setup wizard
-open http://localhost:8080/setup  # password: test
+open http://localhost:7070/setup  # password: test
 ```
 
 ## Architecture
@@ -94,7 +94,7 @@ open http://localhost:8080/setup  # password: test
 **Optional:**
 
 - `OPENCLAW_GATEWAY_TOKEN` — auth token for gateway (auto-generated if unset)
-- `PORT` — wrapper HTTP port (default 8080)
+- `PORT` — wrapper HTTP port (default 7070)
 - `INTERNAL_GATEWAY_PORT` — gateway internal port (default 18789)
 - `OPENCLAW_ENTRY` — path to `entry.js` (default `/openclaw/dist/entry.js`)
 
