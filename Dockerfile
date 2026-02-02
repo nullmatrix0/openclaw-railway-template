@@ -65,8 +65,10 @@ RUN apt-get update \
 RUN cd /tmp \
   && SIGNAL_CLI_VERSION=0.13.23 \
   && wget -q "https://github.com/AsamK/signal-cli/releases/download/v${SIGNAL_CLI_VERSION}/signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz" \
-  && tar -xzf "signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz" -C /opt \
-  && ln -sf "/opt/signal-cli-${SIGNAL_CLI_VERSION}/bin/signal-cli" /usr/local/bin/signal-cli \
+  && mkdir -p /opt/signal-cli \
+  && tar -xzf "signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz" -C /opt/signal-cli \
+  && ln -sf /opt/signal-cli/signal-cli /usr/local/bin/signal-cli \
+  && chmod +x /usr/local/bin/signal-cli \
   && rm "signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz"
 
 # Create signal data directory for persistent storage
