@@ -61,13 +61,13 @@ RUN apt-get update \
     libstdc++6 \
   && rm -rf /var/lib/apt/lists/*
 
-# Install signal-cli (v0.13.12 - stable version for Signal integration)
+# Install signal-cli (latest stable version for Signal integration)
 RUN cd /tmp \
-  && SIGNAL_CLI_VERSION=0.13.12 \
-  && wget -q https://github.com/AsamK/signal-cli/releases/download/v${SIGNAL_CLI_VERSION}/signal-cli-${SIGNAL_CLI_VERSION}-Linux.tar.gz \
-  && tar -xzf signal-cli-${SIGNAL_CLI_VERSION}-Linux.tar.gz -C /opt \
-  && ln -sf /opt/signal-cli-${SIGNAL_CLI_VERSION}/bin/signal-cli /usr/local/bin/signal-cli \
-  && rm signal-cli-${SIGNAL_CLI_VERSION}-Linux.tar.gz
+  && SIGNAL_CLI_VERSION=0.13.23 \
+  && wget -q "https://github.com/AsamK/signal-cli/releases/download/v${SIGNAL_CLI_VERSION}/signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz" \
+  && tar -xzf "signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz" -C /opt \
+  && ln -sf "/opt/signal-cli-${SIGNAL_CLI_VERSION}/bin/signal-cli" /usr/local/bin/signal-cli \
+  && rm "signal-cli-${SIGNAL_CLI_VERSION}-Linux-native.tar.gz"
 
 # Create signal data directory for persistent storage
 RUN mkdir -p /data/signal && chmod 755 /data/signal
